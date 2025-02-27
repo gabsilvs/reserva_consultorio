@@ -1,0 +1,44 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.reserva_consultorio"
+    compileSdk = 34  // Atualizado
+
+    defaultConfig {
+        applicationId = "com.example.reserva_consultorio"
+        minSdkVersion 23  // Corrigido para suportar Firebase Auth
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    dependencies {
+        implementation platform('com.google.firebase:firebase-bom:32.7.2') // Atualizado
+        implementation 'com.google.firebase:firebase-auth'  // Versão gerenciada pelo BoM
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug  // Alterar para produção quando necessário
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+apply plugin: 'com.google.gms.google-services'

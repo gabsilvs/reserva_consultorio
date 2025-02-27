@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "976714429228",
+    "project_id": "reserva-consultorio-ebdcb",
+    "storage_bucket": "reserva-consultorio-ebdcb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976714429228:android:9a0209188470dd3a6e3289",
+        "android_client_info": {
+          "package_name": "com.example.reserva_consultorio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq_2Tgt946Q2Z5KXBIgq7sr7woq7sx01s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
