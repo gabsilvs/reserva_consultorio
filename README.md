@@ -1,16 +1,16 @@
-# reserva_consultorio
+# Reserva Consultório
 
-A new Flutter project.
+Este é um aplicativo Flutter de **reservas de consultórios** para médicos. Ele permite que os pacientes agendem consultas diretamente através do app. Este projeto utiliza **Firebase Authentication** para login e autenticação dos usuários.
 
-## Getting Started
+## Funcionalidades
 
-This project is a starting point for a Flutter application.
+- Login de usuário utilizando email e senha via Firebase Authentication.
+- Navegação simples entre a tela de login e a tela principal (home screen).
+- Responsividade para dispositivos móveis.
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologias Utilizadas
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Flutter**: Framework para criação de apps móveis.
+- **Firebase Auth**: Autenticação de usuários.
+- **Kotlin**: Para integração nativa no Android.
+- **Gradle**: Sistema de automação de builds.
