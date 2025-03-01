@@ -1,6 +1,6 @@
 # Reserva Consultório
 
-Este é um aplicativo Flutter de **reservas de consultórios** para médicos. Ele permite que os pacientes agendem consultas diretamente através do app. Este projeto utiliza **Firebase Authentication** para login e autenticação dos usuários.
+Este é um aplicativo Flutter de **reservas de consultórios** para médicos. Ele permite que médicos reservem consultórios diretamente através do app. Este projeto utiliza **Firebase Authentication** para login e autenticação dos usuários.
 
 ## Funcionalidades
 
@@ -14,3 +14,5 @@ Este é um aplicativo Flutter de **reservas de consultórios** para médicos. El
 - **Firebase Auth**: Autenticação de usuários.
 - **Kotlin**: Para integração nativa no Android.
 - **Gradle**: Sistema de automação de builds.
+- 
+## **Still in development**
