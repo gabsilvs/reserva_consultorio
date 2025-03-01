@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:reserva_consultorio/screens/login_screen.dart';
+import 'package:reserva_consultorio/screens/home_screen.dart'; // 🔹 Importar a tela Home
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +18,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LoginScreen(),
+        '/home': (context) => HomeScreen(), // 🔹 Registrar a rota
+      },
     );
   }
 }

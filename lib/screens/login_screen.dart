@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -17,8 +19,9 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      
-      print("Usuário logado: ${userCredential.user?.email}");
+      print("Usuário logado: \${userCredential.user?.email}");
+      Navigator.pushReplacementNamed(
+          context, '/home'); // Redireciona para a home após login
     } catch (e) {
       print("Erro ao fazer login: $e");
     }
@@ -27,26 +30,38 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(
-              controller: _emailController,
-              decoration: InputDecoration(labelText: 'E-mail'),
-            ),
-            TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(labelText: 'Senha'),
-              obscureText: true,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _login,
-              child: Text('Entrar'),
-            ),
-          ],
+      appBar: AppBar(),
+      body: SingleChildScrollView(
+        // 🔹 Permite rolagem para evitar overflow
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            mainAxisSize:
+                MainAxisSize.min, // 🔹 Evita que a coluna ocupe toda a tela
+            children: [
+              Image.asset('lib/assets/logo.png', width: 250, height: 250),
+              SizedBox(height: 20),
+              Text(
+                "Bem-vindo ao Reserva Consultório",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _emailController,
+                decoration: InputDecoration(labelText: 'E-mail'),
+              ),
+              TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(labelText: 'Senha'),
+                obscureText: true,
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _login,
+                child: Text('Entrar'),
+              ),
+            ],
+          ),
         ),
       ),
     );
