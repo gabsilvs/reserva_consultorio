@@ -1,7 +1,7 @@
-// ignore_for_file: unused_local_variable
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'home_screen.dart';
+import 'cadastro_consultorios.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -16,14 +16,27 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> _login() async {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
       );
-      print("Usuário logado: \${userCredential.user?.email}");
-      Navigator.pushReplacementNamed(
-          context, '/home'); // Redireciona para a home após login
+
+      String email = userCredential.user?.email ?? "";
+      if (email == "admin@gmail.com") {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => CadastroConsultorioScreen()),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+      }
     } catch (e) {
       print("Erro ao fazer login: $e");
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Erro ao fazer login. Verifique suas credenciais.")),
+      );
     }
   }
 
@@ -31,13 +44,11 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: SingleChildScrollView(
-        // 🔹 Permite rolagem para evitar overflow
+      body: SingleChildScrollView( 
         child: Padding(
           padding: EdgeInsets.all(16),
           child: Column(
-            mainAxisSize:
-                MainAxisSize.min, // 🔹 Evita que a coluna ocupe toda a tela
+            mainAxisSize: MainAxisSize.min, 
             children: [
               Image.asset('lib/assets/logo.png', width: 250, height: 250),
               SizedBox(height: 20),
@@ -45,7 +56,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 "Bem-vindo ao Reserva Consultório",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(labelText: 'E-mail'),

@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.reserva_consultorio"
-    compileSdk = 34  // Atualizado
+    compileSdk = 35  // Atualizado
 
     defaultConfig {
         applicationId = "com.example.reserva_consultorio"
         minSdkVersion 23  // Corrigido para suportar Firebase Auth
-        targetSdkVersion 34
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
     }
